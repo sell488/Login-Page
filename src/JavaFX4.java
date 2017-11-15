@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class JavaFX4 extends Application implements EventHandler<ActionEvent>{
+public class JavaFX4 extends Application {
 
     Button button1;
 
@@ -21,6 +21,11 @@ public class JavaFX4 extends Application implements EventHandler<ActionEvent>{
 
         button1 = new Button("Test 2.4");
 
+        button1.setOnAction(e -> {
+            System.out.println("Hi");
+            System.out.println("HELLO");
+        });
+
         StackPane layout1 = new StackPane();
         layout1.getChildren().add(button1);
 
@@ -29,8 +34,4 @@ public class JavaFX4 extends Application implements EventHandler<ActionEvent>{
         primaryStage.show();
     }
 
-    @Override
-    public void handle(ActionEvent event) {
-
-    }
 }
