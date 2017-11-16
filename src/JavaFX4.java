@@ -45,18 +45,39 @@ public class JavaFX4 extends Application {
         passIn1.setPromptText("Enter Password");
         GridPane.setConstraints(passIn1, 1, 1);
 
+        //Age Label
+        Label age1 = new Label("Age");
+        GridPane.setConstraints(age1, 0, 2);
+
+        //Age input
+        TextField ageIn1 = new TextField();
+        ageIn1.setPromptText("Enter your age");
+        GridPane.setConstraints(ageIn1, 1, 2);
+
         Button login1 = new Button("Login");
-        GridPane.setConstraints(login1, 1, 2);
+        login1.setOnAction(e-> isInt(ageIn1, ageIn1.getText()));
+        GridPane.setConstraints(login1, 1, 4);
 
-        grid1.getChildren().addAll(name1, user1, pass1, passIn1, login1);
+        grid1.getChildren().addAll(name1, user1, pass1, passIn1, login1, age1, ageIn1);
 
-        Scene scene1 = new Scene(grid1, 300, 300);
+        Scene scene1 = new Scene(grid1, 500, 500);
         window1.setScene(scene1);
         window1.show();
 
 
 
 
+    }
+
+    private boolean isInt(TextField input1, String message) {
+        try{
+            int age = Integer.parseInt(input1.getText());
+            System.out.println("User is " + age);
+            return true;
+        } catch (NumberFormatException e) {
+            System.out.println("Error " + message + " is not a number");
+            return false;
+        }
     }
 
 }
