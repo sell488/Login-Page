@@ -14,7 +14,7 @@ public class ConfirmBox {
 
     static boolean answer1;
 
-    public static void display(String title, String message) {
+    public static boolean display(String title, String message) {
         Stage window1 = new Stage();
 
         window1.initModality(Modality.APPLICATION_MODAL);
@@ -46,6 +46,7 @@ public class ConfirmBox {
         window1.setScene(scene1);
         window1.showAndWait();
 
+        return answer1;
 
     }
 }
