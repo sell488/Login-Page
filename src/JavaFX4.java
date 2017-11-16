@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 public class JavaFX4 extends Application {
 
     Stage window1;
-    Scene scene1, scene2;
+    Button button1;
 
     public static void main(String[] args) {
         launch(args);
@@ -21,25 +21,17 @@ public class JavaFX4 extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         window1 = primaryStage;
+        window1.setTitle("Message");
 
-        Label label1 = new Label("Welcome");
-        Button button1 = new Button("Go to Scene 2");
-        button1.setOnAction((e -> window1.setScene(scene2)));
+        button1 = new Button("Click");
+        button1.setOnAction(e -> AlertBox.display("Title", "Wow"));
 
-        //First layout
-        VBox layout1 = new VBox(20);
-        layout1.getChildren().addAll(label1, button1);
-        scene1 = new Scene(layout1, 400, 200);
-
-        StackPane layout2 = new StackPane();
-        Button button2 = new Button("Go to scene 1");
-        button2.setOnAction(e -> window1.setScene(scene1));
-        layout2.getChildren().add(button2);
-        scene2 = new Scene(layout2, 400, 200);
-
+        StackPane layout1 = new StackPane();
+        layout1.getChildren().add(button1);
+        Scene scene1 = new Scene(layout1, 300, 250);
         window1.setScene(scene1);
-        window1.setTitle("Scene1");
         window1.show();
+
 
 
     }
